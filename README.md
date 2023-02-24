@@ -44,4 +44,4 @@ Alternatively, you can run the Flask app inside a Docker container. To do this, 
  docker run -d -p 8000:8000 --name background_rotator  background_rotator
 ```
 
-This will start a new Docker container and map port 5000 inside the container to port 5000 on the host system. You can then access the app in a web browser at `http://localhost:8000/rotate_image`, images will rotate but you have to refresh the page to see the new ones.
+This will start a new Docker container and map port 8000 inside the container to port 8000 on the host system. You can then access the app in a web browser at `http://localhost:8000/rotate_image`, images will rotate but you have to refresh the page to see the new ones.
