@@ -1,0 +1,9 @@
+# URLs to rotate
+image_urls:
+  - https://example.com/image1.png
+  - https://example.com/image2.png
+  - https://example.com/image3.png
+
+# Rotation time in minuts
+rotation_time: 1
+
