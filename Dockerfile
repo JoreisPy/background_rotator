@@ -17,7 +17,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code into the container
 COPY . .
 
-# Expose port 8000 for the application
-EXPOSE 8000
-
 CMD ["gunicorn", "app:app", "-b", "0.0.0.0:8000"]

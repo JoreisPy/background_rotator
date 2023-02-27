@@ -41,7 +41,28 @@ Alternatively, you can run the Flask app inside a Docker container. To do this, 
  Once the image has been built, you can run the Flask app in a Docker container using the following command:
 
 ```shell
- docker run -d -p 8000:8000 --name background_rotator  background_rotator
+ docker run -d -p 8000:8000 -v /Path_to_config_file/config.yml:/app/config.yml --name background_rotator  background_rotator
+```
+
+Alternativily, you can use docker-compose to create the container. Create docker-compose.yml and use the `docker-compose_example.yml` as an example.
+
+```shell
+cp docker-compose_example.yml docker-compose.yml
+```
+
+Replace `/Path_to_config_file` with the path of the repo on the host machine and then run the compose file
+replace `host_port` and `Container_port` with the the port you want to use for the program. for example 8000:8000
+
+```shell
+docker-compose up -d
 ```
 
 This will start a new Docker container and map port 8000 inside the container to port 8000 on the host system. You can then access the app in a web browser at `http://localhost:8000/rotate_image`, images will rotate but you have to refresh the page to see the new ones.
+Since config.yml is mapped into the container, you can add and remove images from this file without having to restart the container.
+
+The main objective of this programe is to be used in home dashboards for homelabs. ie. Hommer or flame dashboard.
+After you runt he container and provide its link to the dashboarss to use it as beackground image, you will have a rotating background.
+
+## Limitations
+
+The rotation of images is not happening live. You must restart the browser to see the new image. But the main idea is that you have a diferrent background every time you refresh the app.

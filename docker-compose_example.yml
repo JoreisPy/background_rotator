@@ -1,0 +1,11 @@
+---
+version: "2.1"
+services:
+  background_rotator:
+    image: background_rotator
+    container_name: background_rotator
+    volumes:
+      - /Path_to_config_file/config.yml:/app/config.yml
+    ports:
+      - host_port:container_port
+    restart: unless-stopped
