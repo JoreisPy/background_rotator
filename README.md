@@ -1,7 +1,7 @@
 
 # Flask Image Rotator
 
-This is a Flask app that serves a list of images and rotates them every `rotation_time` minutes. The list of image URLs is stored in a `config.yml` file, which can be easily edited to add or remove images.
+This is a Flask app that serves a list of images and rotates them every `rotation_time` minutes. The list of images is stored in a `config.yml` file, which can be easily edited to add or remove images.
 
 ### Installation
 
@@ -13,7 +13,7 @@ pip install -r requirements.txt
 
 ### Configuration
 
-The list of image URLs and the rotation time are configured in the `config.yml` file. Here's an example of what the `config.yml` file might look like:
+The list of images are configured in the `config.yml` file. Here's an example of what the `config.yml` file might look like:
 
 ```yaml
 image_urls:
@@ -21,14 +21,25 @@ image_urls:
   - https://example.com/image2.png
   - https://example.com/image3.png
 
-rotation_time: 1
+image_files:
+  - data/image1.png
+  - data/image2.png
 ```
-In this example, the rotation time is set to 1 minutes, and there are three image URLs in the list. You can edit this file to add or remove images, or to adjust the rotation time.
+
+The `config.yml` file also allows you to configure the rotation time, which determines how frequently the images are rotated. Additionally, you have the option to select either URLs or local files as source.
+
+```yaml
+rotation_time: 1
+
+use_urls: false
+```
+
+To start the Flask app, run the following command:
 
 ```shell
 gunicorn app:app -b 0.0.0.0:8000
 ```
-his will start the Flask app and make it available at `http://localhost:8000/rotate_image`. You can then access the app in a web browser. Images will rotate but you have to refresh the page to see the new ones.
+This will start the Flask app and make it available at `http://localhost:8000/rotate_image`. You can then access the app in a web browser. Images will rotate but you have to refresh the page to see the new ones.
 
 ## Docker
 
