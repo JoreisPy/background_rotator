@@ -7,5 +7,5 @@ services:
     volumes:
       - /Path_to_config_file/config.yml:/app/config.yml
     ports:
-      - host_port:container_port
+      - 8001:8001
     restart: unless-stopped
