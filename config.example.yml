@@ -4,6 +4,14 @@ image_urls:
   - https://example.com/image2.png
   - https://example.com/image3.png
 
+# Images to rotate
+image_files:
+  - data/image1.png
+  - data/image2.png
+  - data/image3.png
+
 # Rotation time in minuts
 rotation_time: 1
 
+# Use the URLs
+use_urls: false
